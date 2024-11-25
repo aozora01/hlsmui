@@ -51,17 +51,41 @@ android {
 }
 
 
-group = "com.aozora"
-version = "1.0"
+mavenPublishing {
+    // Define coordinates for the published artifact
+    coordinates(
+        groupId = "com.aozora.hlsmui",
+        artifactId = "hlsmui",
+        version = "1.0.0"
+    )
 
-publishing {
-    repositories {
-        maven {
-            url = uri("https://maven.pkg.github.com/aozora/hlsmui")
-            credentials {
-                username = System.getenv("GITHUB_TOKEN")
-                password = System.getenv("GITHUB_TOKEN")
+    // Configure POM metadata for the published artifact
+    pom {
+        name.set("hlsmUI Library")
+        description.set("UI Theme Library for Jetpack Compose")
+        inceptionYear.set("2024")
+        url.set("https://github.com/aozora01/hlsmui")
+
+        licenses {
+            license {
+                name.set("MIT")
+                url.set("https://opensource.org/licenses/MIT")
             }
+        }
+
+        // Specify developers information
+        developers {
+            developer {
+                id.set("aozora01")
+                name.set("Aozora")
+                email.set("aozoralangitbiru1315@gmail.com")
+            }
+        }
+
+        // Specify SCM information
+        scm {
+            url.set("https://github.com/aozora01/hlsmui")
         }
     }
 }
+
